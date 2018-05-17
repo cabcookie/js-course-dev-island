@@ -1,47 +1,32 @@
-var score;
-console.log(score);
-// undefined is a value or more precise a type
+// remainder operator
+var f = 17 % 3;
+console.log(f);
 
-var livesLeft = 3;
-console.log(livesLeft);
-livesLeft = 2;
-console.log(livesLeft);
-console.log(typeof livesLeft);
+// exponent operator
+var g = 3 ** 4;
+console.log(g);
 
-const FIRSTNAME = 'John';
-console.log(FIRSTNAME);
-// FIRSTNAME = 'Max'; this fails
+// Infinity
+var h = Infinity;
+console.log(h);
+console.log(3/0);
 
-var x = 5;
-var y = 2.4;
-console.log(typeof y);
-console.log(y);
+// NaN
+var i = 0/0;
+console.log(i);
 
-var z = 5.3e8
-console.log(typeof z);
+// power method
+var j = Math.pow(2, 53); // 2 ** 53
+console.log(j);
 
-var min = Number.MIN_VALUE;
-var max = Number.MAX_VALUE;
-console.log(min);
-console.log(max);
+// big number
+var k = Math.pow(2, 2000);
+console.log(k);
 
-var a = 4 + 9;
-console.log(a);
+// parse a string
+var number = '3';
+number = parseInt(number);
+console.log(typeof number);
 
-a = 3 * 4;
-console.log(a);
-
-a = y - x;
-console.log(a);
-
-var b = 3;
-b += 2;
-console.log(b);
-
-b++;
-console.log(b);
-
-b--;
-console.log(b);
-
-console.log(12 / 4);
+console.log(parseInt('not a number'));
+console.log(typeof parseInt('not a number'));
