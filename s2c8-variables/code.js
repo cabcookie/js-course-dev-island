@@ -1,32 +1,21 @@
-// remainder operator
-var f = 17 % 3;
-console.log(f);
+// Strings
+var job = 'web developer';
+var town = "London";
 
-// exponent operator
-var g = 3 ** 4;
-console.log(g);
+var greeting = 'Hello, I\'m glad to see you';
+var quote = "This is \n a new line";
+console.log(quote);
 
-// Infinity
-var h = Infinity;
-console.log(h);
-console.log(3/0);
+var tab = "Here is \t a tab.";
+console.log(tab);
 
-// NaN
-var i = 0/0;
-console.log(i);
+var first = 'Bill';
+var last = 'Gates';
+var fullname = first + ' ' + last;
+console.log(fullname);
 
-// power method
-var j = Math.pow(2, 53); // 2 ** 53
-console.log(j);
-
-// big number
-var k = Math.pow(2, 2000);
-console.log(k);
-
-// parse a string
-var number = '3';
-number = parseInt(number);
-console.log(typeof number);
-
-console.log(parseInt('not a number'));
-console.log(typeof parseInt('not a number'));
+console.log(fullname.length);
+console.log(fullname.charAt(5));
+console.log(fullname.indexOf('B'));
+console.log(fullname.indexOf('G'));
+console.log(fullname.lastIndexOf('l'));
