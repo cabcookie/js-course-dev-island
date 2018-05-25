@@ -12,73 +12,38 @@
     // var amountPaidByCustomer = 200;
     console.log('Amount paid by the customer:', amountPaidByCustomer.toFixed(2));
 
+    var availableNotesCoines = [
+        { value: 50,   type: 'note' },
+        { value: 20,   type: 'note' },
+        { value: 10,   type: 'note' },
+        { value: 5,    type: 'note' },
+        { value: 2,    type: 'coin' },
+        { value: 1,    type: 'coin' },
+        { value: 0.5,  type: 'coin' },
+        { value: 0.2,  type: 'coin' },
+        { value: 0.1,  type: 'coin' },
+        { value: 0.05, type: 'coin' },
+        { value: 0.02, type: 'coin' },
+        { value: 0.01, type: 'coin' }
+    ];
 //Programme output:
     //Print change amount
-    var changeAmount = amountPaidByCustomer - amountDue;
-    console.log('Change amount:', changeAmount.toFixed(2));
-    //Print change breakdown: notes and coins
-    var nextNoteOrCoin;
+    var changeAmount = (amountPaidByCustomer - amountDue).toFixed(2);
+    console.log('Change amount:', changeAmount);
+    var noteOrCoin;
     var noOfCurrentNoteOrCoin;
+    var noteOrCoinStr;
+    var noteOrCoinType;
 
-    nextNoteOrCoin = 50;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin+'€:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 20;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin+'€:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 10;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin+'€:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 5;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin+'€:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 2;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin+'€:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 1;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin+'€:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 0.5;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin*100+'p:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 0.2;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin*100+'p:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 0.1;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin*100+'p:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 0.05;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin*100+'p:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 0.02;
-    noOfCurrentNoteOrCoin = Math.floor(changeAmount / nextNoteOrCoin);
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin*100+'p:', noOfCurrentNoteOrCoin) : '';
-    changeAmount = changeAmount % nextNoteOrCoin;
-
-    nextNoteOrCoin = 0.01;
-    noOfCurrentNoteOrCoin = changeAmount.toFixed(2)*100;
-    noOfCurrentNoteOrCoin > 0 ? console.log(nextNoteOrCoin*100+'p:', noOfCurrentNoteOrCoin) : '';
-
+    //Print change breakdown: notes and coins
+    for (var i = 0; i < availableNotesCoines.length; i++) {
+        noteOrCoin = availableNotesCoines[i].value;
+        noteOrCoinType = availableNotesCoines[i].type;
+        noOfCurrentNoteOrCoin = Math.floor(changeAmount / noteOrCoin);
+        noteOrCoinStr = (noteOrCoin < 1 ? noteOrCoin.toFixed(2) + 'p ' : noteOrCoin + '€ ') + noteOrCoinType + ':';
+        noOfCurrentNoteOrCoin > 0 ? console.log(noteOrCoinStr, noOfCurrentNoteOrCoin) : '';
+        changeAmount = (changeAmount - noOfCurrentNoteOrCoin * noteOrCoin).toFixed(2);
+    }
 
 //EUR Example:
     //Banknotes:
